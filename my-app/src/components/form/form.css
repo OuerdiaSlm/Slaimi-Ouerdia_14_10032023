@@ -1,0 +1,66 @@
+.createEmployeeText{
+  padding-top: 130px;
+  background-color: #80808012;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: center;
+}
+.createEmployee{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 35px;
+  background-color: #80808012;
+}
+.informationsForm{
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 500px;
+}
+
+.dataPicker{
+  font-family: "Helvetica Neue",helvetica,arial,sans-serif;
+    font-size: .8rem;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #aeaeae;
+    border-radius: 0.3rem;
+    display: inline-block;
+    position: relative;
+}
+
+
+input , select{
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #0ecf72;
+  border-radius: 2px;
+  background-color: #f6f6f6;
+  width: 180px;
+  margin-top: 5px;
+}
+select {
+  width: 195px;
+}
+
+.firstLastName , .date {
+  display: flex;
+  justify-content: space-between;
+}
+.labelInput {
+  margin-bottom: 15px;
+}
+
+.departementSelect{
+  background-color: #0ecf7238;
+}
+
+.adressDivGlobal{
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.adressDiv{
+  margin-bottom: 15px;
+}
