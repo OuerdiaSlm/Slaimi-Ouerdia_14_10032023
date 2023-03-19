@@ -1,9 +1,15 @@
 import React from 'react';
 import { useState } from "react";
 import Dropdown from 'react-dropdown';
+import dataStates from '../../datas/statesDatas'
+
 import './form.css';
 
 function Form  ()  {
+
+  const saveClick=(e) => {
+    e.preventDefault()
+  };
 
   return (
     <section>
@@ -55,17 +61,16 @@ function Form  ()  {
             <div>
               <div className="adressDiv">
                 <label>State</label>{<br/>}
-                <select name="department">
-                </select>
-              </div>
 
-              {/** 
-              {data.map((item, id) => (   
+                <select name="department">
+                {dataStates.map((item, id) => (   
                 <option key={id}>
                   {item.name}
                 </option>
               ))}
-              */}
+                </select>
+              </div>
+              
               <div className="adressDiv">
                 <label>Zip Code</label>{<br/>}
                 <input type="number" name="firstName" required />
@@ -84,6 +89,7 @@ function Form  ()  {
                 <option>Legal</option>
               </select>
             </div>
+            <input type="submit" value="Save" className="saveButton" />
         </div>
       </form>
       

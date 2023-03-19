@@ -56,11 +56,24 @@ select {
 }
 
 .adressDivGlobal{
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 .adressDiv{
   margin-bottom: 15px;
+}
+
+.saveButton{
+  padding: 8px;
+  border: none;
+  border-bottom: 0px ;
+  border-radius: 2px;
+  background-color: #f6f6f6;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  margin : auto;   
+  margin-top: 40px; 
 }
