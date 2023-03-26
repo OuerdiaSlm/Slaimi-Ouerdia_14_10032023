@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState } from "react";
 import dataStates from '../../datas/statesDatas'
+import{setUsersData} from '../../feature/employees.slice'
+import { useDispatch } from "react-redux";
 
 import './form.css';
 
 function Form  ()  {
+
 
   const [firstName,setFirstName]=useState();
   const [lastName,setLastName]=useState();
@@ -15,13 +18,16 @@ function Form  ()  {
   const [city,setCity]=useState();
   const [state,setState]=useState();
   const [zipCode,setZipCode]=useState();
+  const dispatch=useDispatch()
 
- 
 
   const saveClick=(e) => {
 
     const local=JSON.parse(localStorage.getItem("users"))
+
+    dispatch(setUsersData(local))
     
+
     
     let user= {
       firstName: firstName,

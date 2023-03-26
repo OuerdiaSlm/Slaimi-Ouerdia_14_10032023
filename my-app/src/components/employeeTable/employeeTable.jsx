@@ -1,9 +1,11 @@
 import React from 'react';
 import './employeeTable.css';
+import { useSelector } from "react-redux";
 
 function EmployeeTable  ()  {
 
-  const employeeDatas=JSON.parse(localStorage.getItem("users"))
+  const employeeDatas=useSelector((state) => state.user.employees);
+  //JSON.parse(localStorage.getItem("users"))
   console.log(employeeDatas);
 
   return (
