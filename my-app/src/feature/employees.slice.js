@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const userDatatSlice = createSlice({
+  user : [],
   name : "users",
+ 
   initialState : {
-    employees: JSON.parse(localStorage.getItem("users")),
+    user : [],
   },
 
   reducers : {
     setUsersData: ( state, action) => {
-      state.employees= action.payload
+      state.users= action.payload
+      console.log(state.users)
     },
-
   }
 })
 

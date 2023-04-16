@@ -36,7 +36,7 @@ input , select{
   border-bottom: 2px solid #0ecf72;
   border-radius: 2px;
   background-color: #f6f6f6;
-  width: 180px;
+  width: 90%;
   margin-top: 5px;
 }
 select {
@@ -46,10 +46,14 @@ select {
 .firstLastName , .date {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .labelInput {
   margin-bottom: 15px;
+  width: 200px;
 }
+
+
 
 .departementSelect{
   background-color: #0ecf7238;
@@ -58,11 +62,13 @@ select {
 .adressDivGlobal{
   margin-bottom: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .adressDiv{
   margin-bottom: 15px;
+  width: 200px;
 }
 
 .saveButton{
@@ -76,4 +82,16 @@ select {
   justify-content: center;
   margin : auto;   
   margin-top: 40px; 
+}
+
+
+@media screen and (max-width: 545px) {
+  .firstLastName, .date, .adressDivGlobal {
+    justify-content: center;
+  }
+  .departmentDiv{
+    margin-bottom: 15px;
+    margin: auto;
+    width: 200px;
+  }
 }

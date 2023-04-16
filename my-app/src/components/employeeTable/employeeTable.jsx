@@ -1,52 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './employeeTable.css';
 import { useSelector } from "react-redux";
+import DataTable from 'react-data-table-component'
 
 function EmployeeTable  ()  {
 
-  const employeeDatas=useSelector((state) => state.user.employees);
-  //JSON.parse(localStorage.getItem("users"))
-  console.log(employeeDatas);
+  let employeeDatas=useSelector((state) => state.user.users);
+  console.log(employeeDatas)
+  
 
+ // let newEmployeeDatas = [...employeeDatas]
+
+  //Test react table
+  
+  const columns = [
+    {
+      name : "FirstName",
+      selector : row => row.firstName,
+      sortable : true
+    },
+    {
+      name : "lastName",
+      selector : row => row.lastName,
+      sortable : true
+    },
+    {
+      name : "startDate",
+      selector : row => row.startDate,
+      sortable : true
+    },
+    {
+      name : "department",
+      selector : row => row.department,
+      sortable : true
+    },
+    {
+      name : "birth",
+      selector : row => row.birth,
+      sortable : true
+    },
+    {
+      name : "street",
+      selector : row => row.street,
+      sortable : true
+    },
+    {
+      name : "city",
+      selector : row => row.city,
+      sortable : true
+    },
+    {
+      name : "state",
+      selector : row => row.state,
+      sortable : true
+    },
+    {
+      name : "zipCode",
+      selector : row => row.zipCode,
+      sortable : true
+    },
+  ]
+
+  const [records, setRecords] = useState(employeeDatas);
+  function searchBarFilter (even) {
+    console.log(employeeDatas[0].lastName)
+    const newData = employeeDatas.filter(row => {
+      return row.lastName.toLowerCase().includes(even.target.value.toLowerCase())
+    })
+    setRecords(newData)
+    console.log(newData)
+  }
+  
   return (
     <section className="employeeTableSection">
-      <table>
-        <caption>Current Employees</caption>
-        <thead>
-            <tr>
-                <th scope="col">First name</th>
-                <th scope="col">Last name</th>
-                <th scope="col">Start date</th>
-                <th scope="col">Departement</th>
-                <th scope="col">Date of birth</th>
-                <th scope="col">Street</th>
-                <th scope="col">City</th>
-                <th scope="col">State</th>
-                <th>Zip code</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            {employeeDatas.map((employe, id) => (  
-              
-              <tr>
-              {console.log(employe)}
-              <td>{employe.firstName}</td>
-              <td>{employe.lastName}</td>
-              <td>{employe.startDate}</td>
-              <td>{employe.department}</td>
-              <td>{employe.birth}</td>
-              <td>{employe.street}</td>
-              <td>{employe.city}</td>
-              <td>{employe.state}</td>
-              <td>{employe.zipCode}</td>
-              </tr>
 
-              
-              ))}
-            
-        </tbody>
-      </table>
+      <div className="searchBarDiv">
+        <input className="searchBar" onChange={searchBarFilter}></input>
+      </div>
+
+      <DataTable 
+        columns={columns}  
+        data={employeeDatas} 
+        fixedHeader
+        pagination
+      > </DataTable>
+
     </section>
     
   );

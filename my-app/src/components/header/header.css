@@ -14,8 +14,9 @@
 }
 
 .logo{
-  object-fit: cover;
+  width: 180px;
   height: 80px;
+  object-fit: cover;
 }
 
 .employeesLink{
