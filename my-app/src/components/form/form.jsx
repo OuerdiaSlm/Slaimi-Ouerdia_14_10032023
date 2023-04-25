@@ -1,15 +1,13 @@
 import React from 'react';
 import { useState } from "react";
 import dataStates from '../../datas/statesDatas'
-import {usersDatas} from '../../datas/usersDatas'
 import{setUsersData, userDatatSlice} from '../../feature/employees.slice'
 import { useDispatch } from "react-redux";
 import './form.css';
   
-const userTab =[];
+let userTab =[];
 
 function Form  ()  {
-
   const [firstName,setFirstName]=useState();
   const [lastName,setLastName]=useState();
   const [startDate,setStartDate]=useState();
@@ -23,9 +21,6 @@ function Form  ()  {
 
   const saveClick=(e) => {
     e.preventDefault();
-   // let users = {...usersDatas};
-    //usersDatas =  JSON.parse(JSON.stringify(users));
-    console.log(userTab)
 
     let user= {
       firstName: firstName,
@@ -38,11 +33,12 @@ function Form  ()  {
       state:state,
       zipCode:zipCode,
     }
+    console.log(user)
 
     // Envoi des donnes dans un tableau
-    userTab.push(user)
+    userTab = Object.assign([], userTab);
+    userTab.push(user);
     console.log(userTab)
-    
 
     // On envoie les donnes utilisateur dans le store
     dispatch(setUsersData(userTab))
@@ -83,8 +79,7 @@ function Form  ()  {
                 </label>
               </div>
             </div>
-
-            {/** Adress */}
+            
             <h3>ADRESS</h3>
             <div className="adressDivGlobal">
             <div>
@@ -138,7 +133,7 @@ function Form  ()  {
         </div>
         
       </form>
-      
+    
     </section>
     
   );

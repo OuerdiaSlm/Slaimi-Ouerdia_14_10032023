@@ -4,14 +4,10 @@ import { useSelector } from "react-redux";
 import DataTable from 'react-data-table-component'
 
 function EmployeeTable  ()  {
-
   let employeeDatas=useSelector((state) => state.user.users);
   console.log(employeeDatas)
-  
 
- // let newEmployeeDatas = [...employeeDatas]
-
-  //Test react table
+  // React table
   
   const columns = [
     {
@@ -78,12 +74,7 @@ function EmployeeTable  ()  {
         <input className="searchBar" onChange={searchBarFilter}></input>
       </div>
 
-      <DataTable 
-        columns={columns}  
-        data={employeeDatas} 
-        fixedHeader
-        pagination
-      > </DataTable>
+      <DataTable columns={columns} data={employeeDatas} fixedHeader pagination> </DataTable>
 
     </section>
     

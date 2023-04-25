@@ -17,7 +17,8 @@ import {PersistGate} from 'redux-persist/es/integration/react'
 import {persistStore} from 'redux-persist'
 
 // store
-// D redux persiste
+
+// Debut redux persiste
 const persistConfig = {
   key: "root",
   version: 1,
@@ -30,14 +31,14 @@ const reducer = combineReducers({
 
 const persistReducerA = persistReducer(persistConfig, reducer);
 
-// F Redux persiste
+// Fin Redux persiste
 
-const store = configureStore({
-  /**reducer: {  
-    user: userSlice
-  }**/
+let store = configureStore({
+
   // redux persiste
-  reducer: persistReducerA
+  reducer: persistReducerA,
+  user: userSlice
+
 });
 
 
@@ -46,6 +47,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // redux persiste
 let persistore = persistStore(store);
+
 root.render(
   <React.StrictMode>
     <Provider store={store}> 
