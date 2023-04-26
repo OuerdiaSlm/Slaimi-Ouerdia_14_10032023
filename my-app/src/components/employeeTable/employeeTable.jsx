@@ -5,10 +5,8 @@ import DataTable from 'react-data-table-component'
 
 function EmployeeTable  ()  {
   let employeeDatas=useSelector((state) => state.user.users);
-  console.log(employeeDatas)
-
-  // React table
   
+  // React table
   const columns = [
     {
       name : "FirstName",
@@ -56,28 +54,24 @@ function EmployeeTable  ()  {
       sortable : true
     },
   ]
-
+  
+  //search react table
   const [records, setRecords] = useState(employeeDatas);
-  function searchBarFilter (even) {
-    console.log(employeeDatas[0].lastName)
+  function searchBarFilter (event) {
     const newData = employeeDatas.filter(row => {
-      return row.lastName.toLowerCase().includes(even.target.value.toLowerCase())
+      return row.firstName.toLowerCase().includes(event.target.value.toLowerCase())
     })
     setRecords(newData)
     console.log(newData)
   }
-  
+
   return (
     <section className="employeeTableSection">
-
       <div className="searchBarDiv">
         <input className="searchBar" onChange={searchBarFilter}></input>
       </div>
-
-      <DataTable columns={columns} data={employeeDatas} fixedHeader pagination> </DataTable>
-
+      <DataTable columns={columns} data={records} selectableRows fixedHeader pagination> </DataTable>
     </section>
-    
   );
 };
 
