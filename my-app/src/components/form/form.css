@@ -29,7 +29,6 @@
     position: relative;
 }
 
-
 input , select{
   padding: 8px;
   border: none;
@@ -52,8 +51,6 @@ select {
   margin-bottom: 15px;
   width: 200px;
 }
-
-
 
 .departementSelect{
   background-color: #0ecf7238;

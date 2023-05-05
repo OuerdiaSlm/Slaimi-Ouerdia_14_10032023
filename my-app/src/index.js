@@ -18,7 +18,7 @@ import {persistStore} from 'redux-persist'
 
 // store
 
-// Debut redux persiste
+// Start : redux persiste
 const persistConfig = {
   key: "root",
   version: 1,
@@ -31,14 +31,12 @@ const reducer = combineReducers({
 
 const persistReducerA = persistReducer(persistConfig, reducer);
 
-// Fin Redux persiste
+// End : Redux persiste
 
 let store = configureStore({
-
   // redux persiste
   reducer: persistReducerA,
   user: userSlice
-
 });
 
 

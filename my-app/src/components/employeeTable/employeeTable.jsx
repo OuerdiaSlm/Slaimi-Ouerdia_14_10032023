@@ -62,7 +62,6 @@ function EmployeeTable  ()  {
       return row.firstName.toLowerCase().includes(event.target.value.toLowerCase())
     })
     setRecords(newData)
-    console.log(newData)
   }
 
   return (
