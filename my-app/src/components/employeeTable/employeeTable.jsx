@@ -70,7 +70,7 @@ function EmployeeTable  ()  {
       <div className="searchBarDiv">
         <input className="searchBar" onChange={searchBarFilter}></input>
       </div>
-      <DataTable columns={columns} data={records} selectableRows fixedHeader pagination> </DataTable>
+      <DataTable columns={columns} data={records} fixedHeader pagination> </DataTable>
     </section>
   );
 };

@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import './form.css';
   
 let userTab =[];
-
 function Form  ()  {
   const [firstName,setFirstName]=useState();
   const [lastName,setLastName]=useState();
@@ -22,6 +21,10 @@ function Form  ()  {
   const saveClick=(e) => {
     e.preventDefault();
 
+
+    //
+
+
     let user= {
       firstName: firstName,
       lastName:lastName,
@@ -34,14 +37,15 @@ function Form  ()  {
       zipCode:zipCode,
     }
     console.log(user)
+    
+      // Envoi des donnes dans un tableau
+      userTab = Object.assign([], userTab);
+      userTab.push(user);
+      console.log(userTab)
 
-    // Envoi des donnes dans un tableau
-    userTab = Object.assign([], userTab);
-    userTab.push(user);
-    console.log(userTab)
-
-    // On envoie les donnes utilisateur dans le store
-    dispatch(setUsersData(userTab))
+      // On envoie les donnes utilisateur dans le store
+      dispatch(setUsersData(userTab))
+    
   };
  
   return (
@@ -91,7 +95,7 @@ function Form  ()  {
               
               <div className="adressDiv">
                 <label>City{<br/>}
-                  <input type="text" name="firstName" required onChange={(e)=>setCity(e.target.value)}/>
+                  <input type="text" name="firstName"  onChange={(e)=>setCity(e.target.value)} required/>
                 </label>
               </div>
             </div>
@@ -120,7 +124,7 @@ function Form  ()  {
 
           <div className="departmentDiv">
               <label>Department{<br/>}
-                <select className="departementSelect" name="department" onChange={(e)=>setDepartment(e.target.value)}>
+                <select className="departementSelect" name="department" onChange={(e)=>setDepartment(e.target.value)} required pattern="Marketing | Engineering">
                   <option>Sales</option>
                   <option>Marketing</option>
                   <option>Engineering</option>
