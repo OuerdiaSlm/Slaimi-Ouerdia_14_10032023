@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from "react";
 import dataStates from '../../datas/statesDatas'
-import{setUsersData, userDatatSlice} from '../../feature/employees.slice'
+import{setUsersData} from '../../feature/employees.slice'
 import { useDispatch } from "react-redux";
+import {Modal} from "modal-click-slm";
 import './form.css';
   
 let userTab =[];
@@ -16,14 +17,34 @@ function Form  ()  {
   const [city,setCity]=useState();
   const [state,setState]=useState();
   const [zipCode,setZipCode]=useState();
+  // Modal boolean 
+  const [modal, setModal] = useState(false);
   const dispatch=useDispatch()
 
   const saveClick=(e) => {
     e.preventDefault();
 
-
-    //
-
+    if ( firstName.length < 2) {
+      alert('Please entry a First Name (min 2 lettres)');
+    } else if ( lastName.length < 2) {
+      alert('Please entry a Last Name (min 2 lettres)');
+    } else if ( startDate == null) {
+      alert('Please choose a Start date');
+    } else if ( department == null) {
+      alert('Please select a Department');
+    } else if ( birth == null) {
+      alert('Please choose a Date of birth');
+    } else if ( street.length < 2) {
+      alert('Please entry a Street (min 2 lettres)');
+    } else if ( city.length < 2) {
+      alert('Please entry a City (min 2 lettres)');
+    } else if ( state == null) {
+      alert('Please select a State');
+    } else if ( zipCode.length === 0) {
+      alert('Please entry a Zip code');
+    } else {
+        
+    setModal(true);
 
     let user= {
       firstName: firstName,
@@ -36,21 +57,19 @@ function Form  ()  {
       state:state,
       zipCode:zipCode,
     }
-    console.log(user)
     
-      // Envoi des donnes dans un tableau
+      // Sending data in an array
       userTab = Object.assign([], userTab);
       userTab.push(user);
-      console.log(userTab)
 
-      // On envoie les donnes utilisateur dans le store
+      // Sending employee datas in the store (redux)
       dispatch(setUsersData(userTab))
-    
+    }
   };
  
   return (
     <section>
-    <h2 className="createEmployeeText">Create Employee</h2>
+      <h2 className="createEmployeeText">Create Employee</h2>
       <form  className="createEmployee">
       
         <div className="informationsForm">
@@ -134,12 +153,15 @@ function Form  ()  {
               </label>
             </div>
             <input type="submit" value="Save" className="saveButton" onClick={(e)=>saveClick(e)}/>
+            
         </div>
         
       </form>
-    
+      {modal && (
+        <Modal trigger={modal} setTrigger={setModal}/>
+      )}
+      
     </section>
-    
   );
 };
 
