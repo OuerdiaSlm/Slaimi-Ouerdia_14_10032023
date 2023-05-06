@@ -41,9 +41,11 @@ th {
     border: 1px solid rgb(190, 190, 190);
     padding: 10px 15px;
 }
+
 th {
   font-size: large;
 }
+
 td {
     text-align: center;
 }
@@ -57,12 +59,14 @@ td {
 .searchBarDiv{
   display: flex;
   justify-content: end;
+  align-items: center;
   padding-bottom: 20px;
   padding-top: 20px;
 }
 
 
 @media screen and (max-width: 1070px) {
+
   .firstLastName, .date, .adressDivGlobal {
     justify-content: center;
   }
@@ -71,4 +75,5 @@ td {
     margin: auto;
     width: 200px;
   }
+
 }
