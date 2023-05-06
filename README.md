@@ -2,14 +2,21 @@
 
 ## About
 
-Migrate a jQuery library to React project
+> Migrate a jQuery library to React project
 
-# In the my-app directory, you can run:
+## In the my-app directory, you can run:
 
-  npm start
+```bash
+npm start
+```
 
 ## Technologies
 - JS
 - CSS 
 - React
 - Redux
+
+## More info
+
+The GitHub repository containing a modal can be found at:
+https://github.com/OuerdiaSlm/Slaimi-Ouerdia_14-Modal-Storybook
